@@ -39,6 +39,18 @@ int main (int argc, char* argv[])
 
         printf("\nYour meal after using the random meal generator:\n%s", meal[randMeal]);
         printf(" - $%.2f\n", price[randMeal]);
+
+        double mealPrice = price[randMeal];
+        double tax = mealPrice * (atof(argv[1]) / 100);
+        double tip = mealPrice * (atof(argv[2]) / 100);
+
+        // Output tax and tip
+        printf("Tax Amount: $%.2f ",tax);
+        printf("(%s%%)\n", argv[1]);
+        printf("Tip Amount: $%.2f ", tip);
+        printf("(%s%%)\n", argv[2]);
+
+        printf("YOUR TOTAL: $%.2f\n", mealPrice + tax + tip);
     }
 
     return 0;
