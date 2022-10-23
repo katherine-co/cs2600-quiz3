@@ -16,39 +16,39 @@ int main(void){
     // Code for employee number not found
     matchPtr = searchEmployeeByNumber(EmployeeTable, EmployeeTableEntries, 1045);
     if (matchPtr != NULL)
-        printf("Employee ID 1045 is in record %ld\n", matchPtr-EmployeeTable);
+        printf("Employee ID 1045 is in record %ld.\n", matchPtr-EmployeeTable);
     else
-        printf("Employee ID is NOT found in the record\n");
+        printf("Employee ID is NOT found in the record.\n");
 
     // Code for employee name found
     matchPtr = searchEmployeeByName(EmployeeTable, EmployeeTableEntries, "Tony Bobcat");
     if (matchPtr!=NULL)
-        printf("Employee Tony Bobcat is in record %ld\n", matchPtr-EmployeeTable);
+        printf("Employee Tony Bobcat is in record %ld.\n", matchPtr-EmployeeTable);
     else
-        printf("Employee Tony Bobcat is NOT found in the record\n");
+        printf("Employee Tony Bobcat is NOT found in the record.\n");
 
-    // Code for mployee for phone found
+    // Example employee phone found
     matchPtr = searchEmployeeByPhone(EmployeeTable, EmployeeTableEntries, "310-555-1215");
     if (matchPtr!=NULL)
-        printf("Employee phone number is in record %ld.\n", matchPtr-EmployeeTable);
+        printf("Employee phone number 310-555-1215 is in record %ld.\n", matchPtr-EmployeeTable);
     else
-        printf("Employee phone number is NOT found in the record.\n");
+        printf("Employee phone number 909-356-9001 is NOT found in the record.\n");
     
-    // Code for employee phone not found
+    // Example employee phone not found
     matchPtr = searchEmployeeByPhone(EmployeeTable, EmployeeTableEntries, "909-356-9001");
     if(matchPtr!=NULL)
-        printf("Employee phone number is in record %ld.\n", matchPtr-EmployeeTable);
+        printf("Employee phone number 909-356-9001 is in record %ld.\n", matchPtr-EmployeeTable);
     else
-        printf("Employee phone number is NOT found in the record.\n");
+        printf("Employee phone number 909-356-9001 is NOT found in the record.\n");
     
-    // Code for employee salary found
+    // Example employee salary found
     matchPtr = searchEmployeeBySalary(EmployeeTable, EmployeeTableEntries, 4.50);
     if(matchPtr!=NULL)
         printf("Employee salary is in record %ld.\n", matchPtr-EmployeeTable);
     else    
         printf("Employee salary is NOT found in the record.\n");
     
-    // Code for employee salary not found
+    // Example employee salary not found
     matchPtr = searchEmployeeBySalary(EmployeeTable, EmployeeTableEntries, 16.50);
     if(matchPtr!=NULL)
         printf("Employee salary is in record %ld.\n", matchPtr-EmployeeTable);
