@@ -35,7 +35,6 @@ int main()
             case 1:
                 int guesses = 0;
                 int holder = 100;
-                // randNum = rand() % userMax + 1;
                 do
                 {
                     printf("Enter q if you would like exit to the menu.\n"
