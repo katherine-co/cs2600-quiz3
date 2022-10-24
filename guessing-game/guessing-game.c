@@ -7,8 +7,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <string.h>
-int userMax = 10;
- 
+
 int main()
 {
     char input;
@@ -17,24 +16,26 @@ int main()
     int max = 0;
     int userWins = 0;
     int randNum;
+    FILE *fp;
+    FILE *fptr;
+    int userMax;
     
-    /*
-    FILE *fptr = fopen("max-number.txt", "r");
-    if (fscanf(fptr, "%d", userMax) == EOF)
+    // Reads the max-number.txt
+    fptr = fopen("max-number.txt.swp", "r");
+    if (fscanf(fptr, "%d", &userMax) == EOF)
     {
         userMax = 10;
     }
     else
     {
-        fscanf(fptr, "%d", userMax);
-        fclose(fptr);
+        fscanf(fptr, "%d", &userMax);
     }
-    */
-
+    fclose(fptr);
+    
     srand(time(0));
     // Display menu for user to choose option between 1-3
     do
-    {
+    {   
         printf("Welcome!\n"
                 "Enter 1 to play a game\n"
                 "Enter 2 to change the max number\n"
@@ -64,13 +65,13 @@ int main()
                     else if (isdigit(input))
                     {
                         userVal = input - '0';
-                        if (userVal > holder)
+                        if (userVal > holder)   // Checks if user's value is too high
                         {
                             printf("Too high!\n");
                             guesses++;
                             continue;
                         }
-                        else if (userVal < holder)
+                        else if (userVal < holder)      // Checks if user's value is too low
                         {
                             printf("Too low!\n");
                             guesses++;
@@ -79,6 +80,7 @@ int main()
                         else 
                         {
                             guesses++;
+                            printf("You guessed it!\n");
                             break;
                         }
                     }
@@ -89,10 +91,9 @@ int main()
                     }
                 } while(userVal != randNum);
                 userWins = 1;
-                printf("You guessed it!\n");
                 break;
     
-            // if option 2 selected, tell max value they can set the number
+            // If option 2 selected, tell max value they can set the number
             case 2:
                 printf("Enter the new maximum number: ");
                 do
@@ -101,14 +102,14 @@ int main()
                     if(max <= 0 || max > 10)    // Check number is <= 0 or > 10
                     {
                         printf("The number you have inputted is invalid.\n"
-                            "Enter a valid number from 1-10.\n");
+                            "Enter a valid number from 1-10: ");
                     }
                     else
                     {
                         userMax = max;
                     }
                 }
-                while(max < 0 || max >= 10);
+                while(max < 0 || max > 10);
             
                 printf("New number range will be between 1 to %d\n", userMax);
                 break;
@@ -127,8 +128,8 @@ int main()
                 {
                     printf("Sorry. Better luck next time.");
                 }
-
-                FILE *fp = fopen("max-number.txt", "w+");
+                
+                fp = fopen("max-number.txt", "w+");     // Writes user's max value into .txt file
                 fprintf(fp, "%d", userMax);
                 fclose(fp);
 
