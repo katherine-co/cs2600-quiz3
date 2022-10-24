@@ -54,13 +54,13 @@ int main()
                         userVal = input - '0';
                         if (userVal > holder)
                         {
-                            printf("Too high!\n");
+                            printf("Too high!\n");      // Checks if user's value is too high
                             guesses++;
                             continue;
                         }
                         else if (userVal < holder)
                         {
-                            printf("Too low!\n");
+                            printf("Too low!\n");       // Checks if user's value is too low
                             guesses++;
                             continue; 
                         }
@@ -89,14 +89,14 @@ int main()
                     if(max <= 0 || max > 10)    // Check number is <= 0 or > 10
                     {
                         printf("The number you have inputted is invalid.\n"
-                            "Enter a valid number from 1-10.\n");
+                            "Enter a valid number from 1-10: \n");
                     }
                     else
                     {
                         userMax = max;
                     }
                 }
-                while(max < 0 || max >= 10);
+                while(max < 0 || max > 10);
             
                 printf("New number range will be between 1 to %d\n", userMax);
                 break;
