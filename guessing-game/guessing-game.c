@@ -11,14 +11,26 @@ int userMax = 10;
  
 int main()
 {
-    
-    
     char input;
     int userVal = 0;
     int userChoice = 0;
     int max = 0;
     int userWins = 0;
     int randNum;
+    
+    /*
+    FILE *fptr = fopen("max-number.txt", "r");
+    if (fscanf(fptr, "%d", userMax) == EOF)
+    {
+        userMax = 10;
+    }
+    else
+    {
+        fscanf(fptr, "%d", userMax);
+        fclose(fptr);
+    }
+    */
+
     srand(time(0));
     // Display menu for user to choose option between 1-3
     do
@@ -102,7 +114,7 @@ int main()
                 break;
         
             // If option 3 selected, display message "Thank you" and end program
-            case 3:
+            case 3:                
                 printf("Thank you for playing.\n");
                 printf("Final Result:\n");
             
@@ -115,6 +127,11 @@ int main()
                 {
                     printf("Sorry. Better luck next time.");
                 }
+
+                FILE *fp = fopen("max-number.txt", "w+");
+                fprintf(fp, "%d", userMax);
+                fclose(fp);
+
                 break;
             }
  
